@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function Input({ type, title, submit, inputType = 'text' }) {
+function Input({ type, title, submit, inputType = 'text', isSchool = false, isJob = false, index = 0 }) {
   const [isEditing, setisEditing] = useState(true);
   const [value, setValue] = useState('');
 
@@ -21,7 +21,7 @@ function Input({ type, title, submit, inputType = 'text' }) {
         <button
           type='submit'
           disabled={!isEditing}
-          onClick={() => { handleEdit(); submit(type, value) }}>
+          onClick={() => { handleEdit(); submit(type, value, isSchool, isJob, index) }}>
           Submit
         </button>
         <button
